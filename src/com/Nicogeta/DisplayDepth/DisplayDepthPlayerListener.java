@@ -1,5 +1,6 @@
 package com.Nicogeta.DisplayDepth;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -34,7 +35,7 @@ public class DisplayDepthPlayerListener extends PlayerListener {
     	if (display) {
     		if(action == Action.RIGHT_CLICK_AIR || action == Action.RIGHT_CLICK_BLOCK ) {
     			if (player.getItemInHand().getType() == Material.WATCH) {
-    				player.sendMessage("Your " + location + " over 0");
+    				player.sendMessage(ChatColor.GREEN + "INFO:" + "You're " + location + " over 0");
     			}
     		}
     		
