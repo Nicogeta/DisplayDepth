@@ -26,7 +26,7 @@ public class DisplayDepthPlayerListener extends PlayerListener {
 		int location = event.getPlayer().getLocation().getBlockY();
 		Action action = event.getAction();
     	boolean display = false;
-    	if((DisplayDepth.Permissions == null && player.isOp()))
+    	if((DisplayDepth.Permissions == null && player.isOnline()))
     		display = true;
     	else if(DisplayDepth.Permissions != null && DisplayDepth.Permissions.has(player, "DisplayDepth.display"))
     		display = true;
