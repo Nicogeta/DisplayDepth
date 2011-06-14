@@ -8,6 +8,10 @@
     import java.util.Properties;
     import java.util.logging.Logger;
      
+import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
     import org.bukkit.event.Event;
     import org.bukkit.event.Event.Priority;
     import org.bukkit.event.player.PlayerLoginEvent;
@@ -15,8 +19,9 @@
     import org.bukkit.plugin.PluginManager;
     import org.bukkit.plugin.java.JavaPlugin;
      
+
     import com.nijiko.permissions.PermissionHandler;
-    import com.nijikokun.bukkit.Permissions.Permissions;
+import com.nijikokun.bukkit.Permissions.Permissions;
      
     public class DisplayDepth extends JavaPlugin {
      
@@ -91,6 +96,29 @@
             public void onDisable() {
                     log.info("DisplayDepth DISABLE");
             }
+            
+            
+        	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        		Player player;
+        		if (command.getName().equalsIgnoreCase("rdd")) {
+        		if(sender instanceof Player) {
+        			player = (Player) sender;
+        			if ((DisplayDepth.Permissions == null && player.isOp()) 
+        				|| (DisplayDepth.Permissions != null && DisplayDepth.Permissions.has(player, "DisplayDepth.reload"))) {
+        				
+        				if(args.length == 0) {
+        					loadProcedure();
+        					player.sendMessage(ChatColor.GREEN + "INFO: Changes applied");
+        				} else {
+        					player.sendMessage(ChatColor.RED + "INFO: You have to type /rdd");
+        				}
+        			} else {
+        				player.sendMessage("You don't have the permission to do that !");
+        			}
+        		}
+        		}
+				return true;	
+        	}
      
      
      
