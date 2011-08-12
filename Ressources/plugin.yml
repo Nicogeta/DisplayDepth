@@ -1,0 +1,16 @@
+name: DisplayDepth
+main: com.Nicogeta.DisplayDepth.DisplayDepth.DisplayDepth
+version: 0.2
+author: Nicogeta
+description: Show you your Y location on Right Click with a Watch.
+commands:
+    rdd:
+        description: Apply changes
+        usage: /rdd
+permissions:
+    DisplayDepth.display:
+        default: true
+        description: Let you see your Y location on Right Click with a watch.
+    DisplayDepth.reload:
+        default: op
+        descrition: Let you reload DisplayDepth's configuration.
