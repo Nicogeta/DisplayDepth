@@ -1,4 +1,3 @@
-
 package com.Nicogeta.DisplayDepth.DisplayDepth;
 
 import org.bukkit.ChatColor;
@@ -22,16 +21,16 @@ public class DisplayDepthPlayerListener extends PlayerListener {
 		int location = event.getPlayer().getLocation().getBlockY();
 		Action action = event.getAction();
 		boolean display = false;
-		if((DisplayDepth.Permissions == null && player.isOnline()))
+		if((DisplayDepth.permissions == null && player.isOnline()))
 			display = true;
-		else if(DisplayDepth.Permissions != null && DisplayDepth.Permissions.has(player, "DisplayDepth.display"))
+		if(DisplayDepth.permissions != null && DisplayDepth.permissions.has(player, "DisplayDepth.display"))
 			display = true;
 
 
 		if (display) {
 			if(action == Action.RIGHT_CLICK_AIR || action == Action.RIGHT_CLICK_BLOCK ) {
 				if (player.getItemInHand().getTypeId() == plugin.theItemID) {
-					player.sendMessage(ChatColor.GREEN + "INFO: " + "You're " + location + " over 0"); 
+					player.sendMessage(ChatColor.GREEN + "INFO: " + "You are " + location + " over 0"); 
 				}
 			}
 		}
